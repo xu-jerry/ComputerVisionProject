@@ -1,0 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+data = np.array([[0.5, 0.9], [0.3, 0.7], [1.1, 2.3], [2.0, 4.3], [3.5, 6.8], [4.1, 8], [0, 0.1], [5.8, 11]])
+
+def J(a, b):
+        temp = 0
+        for i in data:
+                temp += (a + b * i[0] - i[1]) ** 2
+        return temp / (2 * len(data))
+
+theta_0 = np.linspace(-3, 5, 30)
+theta_1 = np.linspace(0, 3, 30)
+X, Y = np.meshgrid(theta_0, theta_1)
+Z = J(X, Y)
+
+surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm)
+ax.set_xlabel('theta_0')
+ax.set_ylabel('theta_1')
+ax.set_zlabel('J')
+
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.show()
