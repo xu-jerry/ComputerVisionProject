@@ -1,3 +1,5 @@
+#Quiz 6 - Forward Pass and Backpropagation
+
 def sigmoid(x):
     return 1.0 / (1 + e ** (-1 *x))
 
@@ -21,5 +23,5 @@ def f(x, y):
     grad_s2 = grad_s5
     grad_s4 = grad_s5
     grad_s3 = 2 * s3 * grad_s4
-    grad_x = grad_s3
-    grad_y = grad_s3
+    grad_x += grad_s3
+    grad_y += grad_s3
