@@ -3,6 +3,7 @@
 def sigmoid(x):
     return 1.0 / (1 + e ** (-1 *x))
 
+# for function f(x, y) = (x + sigmoid(y)) / (sigmoid(x) + (x + y) ** 2)
 def f(x, y):
     s0 = sigmoid(y)
     s1 = x + s0
