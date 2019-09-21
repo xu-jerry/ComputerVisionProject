@@ -4,6 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
+#test data
+data = np.array([[0.5, 0.9], [0.3, 0.7], [1.1, 2.3], [2.0, 4.3], [3.5, 6.8], [4.1, 8], [0, 0.1], [5.8, 11]])
+
+#error and partial derivatives for linear approximation
 def partial_0_J(a, b):
     J = 0
     for i in data:
@@ -24,6 +28,7 @@ def J(a, b):
                 temp += (a + b * i[0] - i[1]) ** 2
         return temp / (2 * len(data))
 
+#error and partial derivatives for quadratic approximation
 def partial_0_J(a, b, c):
     J = 0
     for i in data:
@@ -52,7 +57,6 @@ def J(a, b, c):
         return temp / (2 * len(data))
 
 def main():
-    data = np.array([[0.5, 0.9], [0.3, 0.7], [1.1, 2.3], [2.0, 4.3], [3.5, 6.8], [4.1, 8], [0, 0.1], [5.8, 11]])
     for i in data:
         plt.scatter(i[0], i[1])
 
